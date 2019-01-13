@@ -93,7 +93,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias tmux='env TERM=tmux-256color tmux-next'
+#alias tmux='env TERM=tmux-256color tmux-next'
 
 export DISPLAY=localhost:0
 
