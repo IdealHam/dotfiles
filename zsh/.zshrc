@@ -97,10 +97,8 @@ alias tmux='env TERM=tmux-256color tmux-next'
 
 export DISPLAY=localhost:0
 
-eval `dircolors ~/git/dircolors-solarized/dircolors.ansi-light`
-
 # set default editor, for e.g. tmuxinator to work properly
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # Have FZF use ripgrep for speed
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
