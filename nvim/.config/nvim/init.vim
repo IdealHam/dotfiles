@@ -160,7 +160,7 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checkti
 autocmd FileChangedShellPost *
   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
-" Use Alt mappings to move lines left and right,
+" Use Ctrl mappings to move lines left and right,
 " unfortunately it needs a little vimwiki suppression.
 nnoremap <C-Right> >>
 nnoremap <C-Left> <<
@@ -168,6 +168,10 @@ inoremap <C-Right> <C-T>
 inoremap <C-Left> <C-D>
 vnoremap <C-Right> >
 vnoremap <C-Left> <
+nnoremap <C-Up> ddkP
+nnoremap <C-Down> ddp
+inoremap <C-Up> <esc>ddkP
+inoremap <C-Down> <esc>ddP
 
 " indenting
 set tabstop=2
