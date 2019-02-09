@@ -95,7 +95,12 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #alias tmux='env TERM=tmux-256color tmux-next'
 
-export DISPLAY=localhost:0
+# set the right display for wsl
+# see here for instructions about doing .zshrc conditionals
+# http://zsh.sourceforge.net/Doc/Release/Conditional-Expressions.html
+if [[ -f ~/os_is_wsl ]]; then
+  export DISPLAY=localhost:0
+fi
 
 # set default editor, for e.g. tmuxinator to work properly
 export EDITOR='nvim'
