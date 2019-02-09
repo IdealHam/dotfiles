@@ -1,4 +1,16 @@
 """""""""""""""""""""""""""""""""""""""
+" Plugin functions
+"""""""""""""""""""""""""""""""""""""""
+function! BuildComposer(info)
+  if a:info.status != 'unchanged' || a:info.force
+    if has('nvim')
+      !cargo build --release
+    else
+      !cargo build --release --no-default-features --features json-rpc
+    endif
+  endif
+endfunction
+"""""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
@@ -19,6 +31,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'wincent/loupe'
 Plug 'plasticboy/vim-markdown'
 Plug 'mzlogin/vim-markdown-toc'
+Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 "Plug 'gabrielelana/vim-markdown'
 "Plug 'SidOfc/mkdx'
 Plug 'scrooloose/nerdtree'
@@ -202,5 +215,5 @@ endif
 " from https://superuser.com/questions/1314581/open-url-with-vim-in-ubuntu-wsl-windows-subsystem-for-linux
 if !empty(glob('~/os_is_linux'))
   " open current file in browser with gb - as yet untested
-  nnoremap gb :exe ':silent !chromium-browser %'<CR>
+  nnoremap gb :exe ':silent !chromium-browser % '<CR>
 endif
